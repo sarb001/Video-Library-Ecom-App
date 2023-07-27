@@ -4,14 +4,16 @@ import NavMenu from './NavMenu'
 const VideoListing = () => {
   return (
     <>
-        <div className="video-container" style = {{display:'grid',gridTemplateColumns:'1fr 2fr'}}>
-              <div className="navbar-container" style = {{backgroundColor:'lightsalmon'}}>
+        <div className="video-container" style = {{display:'grid',gridTemplateColumns:'1fr 4fr'}}>
+              <div className="navbar-container" style = {{backgroundColor:'black',color:'white'}}>
                 <NavMenu />
               </div>
              <div className="sidebar-container" style = {{backgroundColor:'lightcoral'}}>
-                <span> All </span>
-                <span> Stock  </span>
-                <span> Real  </span>
+                <span> All1 </span>
+                <span> Stock2  </span>
+                <span> Real3  </span>
+                <span> Real4  </span>
+                <span> Real5  </span>
              </div>
         </div>
     </>

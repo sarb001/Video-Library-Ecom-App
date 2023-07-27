@@ -15,7 +15,7 @@ const NavMenu = () => {
 
             <div className="all-tabs" style = {{display:'grid',gridTemplateRows:'repeat(auto-fill,(8,1fr))',rowGap:'1px'}}>  
                 <span className = 'menu-tab'>
-                     <Link to = "/home" className='menu-link' > Home </Link>
+                     <Link to = "/" className='menu-link' > Home </Link>
                 </span>
                 <span className = 'menu-tab'>
                      <Link to = "/search" className='menu-link' > Search </Link>
@@ -33,7 +33,7 @@ const NavMenu = () => {
                      <Link to = "/watchlater" className='menu-link' > Watch Later </Link>
                 </span>
                 <span className = 'menu-tab'>
-                     <Link to = "/watchlater" className='menu-link' > Light Mode </Link>
+                     <Link to = "/lightmode" className='menu-link' > Light Mode </Link>
                 </span>
                 <span className = 'menu-tab'>
                      <Link to = "/profile"  className='menu-link' > Profile </Link>

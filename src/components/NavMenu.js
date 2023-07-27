@@ -7,7 +7,8 @@ import '../styles/NavMenu.css';
 const NavMenu = () => {
   return (
     <>
-      <div className = "navmenu-container" style = {{margin:'1% 1% 5% 8%'}}>
+      <div className = "navmenu-container" style = {{margin:'1% 1% 5% 8%' ,
+    cursor: 'pointer'}}>
             <div className="main-logo" style = {{margin:'4%'}}>
                 <span style = {{fontSize:'40px',padding:'9% 9%'}}> AssestPlay </span>
             </div>
@@ -30,6 +31,9 @@ const NavMenu = () => {
                 </span>
                 <span className = 'menu-tab'>
                      <Link to = "/watchlater" className='menu-link' > Watch Later </Link>
+                </span>
+                <span className = 'menu-tab'>
+                     <Link to = "/watchlater" className='menu-link' > Light Mode </Link>
                 </span>
                 <span className = 'menu-tab'>
                      <Link to = "/profile"  className='menu-link' > Profile </Link>

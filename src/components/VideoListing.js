@@ -8,7 +8,7 @@ const VideoListing = () => {
               <div className="navbar-container" style = {{backgroundColor:'black',color:'white'}}>
                 <NavMenu />
               </div>
-             <div className="sidebar-container" style = {{backgroundColor:'lightcoral'}}>
+             <div className="sidebar-container" style = {{backgroundColor:'#dee2e6'}}>
                 <span> All1 </span>
                 <span> Stock2  </span>
                 <span> Real3  </span>

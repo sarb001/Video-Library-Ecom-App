@@ -5,14 +5,14 @@ const ProductCard = ({maindata}) => {
 
   return (
     <>
-        <div className="productcard-container" style = {{width:'90%',margin:'1%'}}>
+        <div className="productcard-container" style = {{width:'90%',margin:'1%',cursor:'pointer'}}>
                     <div className = "img-container">
                     <img src = {thumbnail}  style = {{width:'100%'}} />
                     </div>
 
-                    <div className  = "bottom-container" style = {{display:'grid',gridTemplateColumns:'0.5fr 3fr'}}>
+                    <div className  = "bottom-container" style = {{display:'grid',gridTemplateColumns:'0.5fr 2fr 1fr'}}>
+                          
                             <div className = "bottom-first-container">
-                              
                                 <span>  
                                     <img src = {profile} style = {{width:'60%',borderRadius:'50%'}} /> 
                                 </span>
@@ -26,6 +26,12 @@ const ProductCard = ({maindata}) => {
                                 <span>   {views.slice(0,2)}M  </span>
                                 <span> {date} </span>
                                 </b>
+                            </div>
+
+                            <div className="bottom-third-section">
+                                <button> Save to watch Later  </button>
+                                <button> Save to playlist  </button>
+                                <button> Add to liked videos </button>
                             </div>
                     </div>
             

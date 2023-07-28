@@ -24,6 +24,7 @@ export function makeServer({ environment = "development" } = {}){
             videos.forEach((item) => {
                 server.create("video" , { ...item });
             });
+            
             categories.forEach((item) =>  server.create("category" , { ...item }));
             users.forEach((item) =>  server.create("user" , {
                  ...item,
@@ -36,7 +37,7 @@ export function makeServer({ environment = "development" } = {}){
         },
 
         routes(){
-            
+
             this.namespace = "api" ;
             //  Video handler 
 

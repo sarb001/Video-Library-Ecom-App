@@ -1,0 +1,10 @@
+.chip-active{
+    background-color: red;
+    color: black;
+}
+.chip{
+    padding:1% 4%;
+    background-color: rgb(7, 210, 255);
+    color: white;
+    border-radius: 50px;
+}

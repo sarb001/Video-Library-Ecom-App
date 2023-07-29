@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import NavMenu from './NavMenu'
 import axios from 'axios';
 import ProductCard from './ProductCard';
+import '../styles/VideoListing.css';
 
 const VideoListing = () => {
 
@@ -38,6 +39,10 @@ const VideoListing = () => {
      setcategoryvideos(filterdata);
     }
 
+     const isChipActive = (item) => {
+        return currentcategory.toLowerCase() === item.toLowerCase() ? 'chip-active' : null;
+     }
+
   return (
     <>
         <div className="video-container" style = {{display:'grid',gridTemplateColumns:'1fr 4fr'}}>
@@ -48,12 +53,15 @@ const VideoListing = () => {
              <div className="sidebar-container" style = {{backgroundColor:'#dee2e6'}}>
 
                     <div className="top-categories" style = {{paddingTop:'2%',cursor:'pointer',paddingBottom:'2%'}}>
-                      <span style = {{padding:'1% 4%',backgroundColor:'royalblue',borderRadius:'50px'}}> All </span>
+                      <span
+                       className={`chip ${isChipActive("All")}`}
+                      > All </span>
                         {videoCategory.map((item) => (
                           <span 
-                           key = {item}
+                            className={`chip ${isChipActive(item)}`}
+                            key = {item}
                             onClick={() => handlefiltercategory(item)}
-                           style = {{padding:'1% 4%',backgroundColor:'royalblue',borderRadius:'50px'}}> 
+                           > 
                           {item} 
                           </span>
                         ))}

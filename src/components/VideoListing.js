@@ -20,13 +20,13 @@ const VideoListing = () => {
         (async () => {
           try{
             const response = await axios.get('/api/videos');
-            console.log('Fetching Videos -',response.data.videos);
+            // console.log('Fetching Videos -',response.data.videos);
             setloader(false);
             setvideos(response.data.videos);
             setcategoryvideos(response.data.videos);
           }catch(err){  
              setloader(false);
-             console.log(' Video Listing Error ',err);
+            //  console.log(' Video Listing Error ',err);
           } 
           })();
    },[])  

@@ -6,7 +6,6 @@ const ProductCard = ({maindata}) => {
      const navigate = useNavigate();
 
      const handlevideoplayer = () => {
-
           navigate(`/singlevideo/${maindata._id}`);
      };
 

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import NavMenu from './NavMenu'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { AiFillLike } from 'react-icons/ai';
+import { MdPlaylistAdd ,MdWatchLater } from 'react-icons/md';
 
 const SingleVideos = () => {
 
@@ -9,38 +11,58 @@ const SingleVideos = () => {
    const [Loader,setLoader] =  useState(true);
 
    const params = useParams();
+   
+   const {title ,creator ,views ,date} = singlevideo;
 
    useEffect(() => {
      (async () => {
       try{
         const response = await axios.get(`/api/video/${params.videoId}`);
-        console.log('reponse in singlevideo -',response);
+        // console.log('reponse in singlevideo -',response);
         setLoader(false);
         setsinglevideo(response.data.video);
       }catch(error){
          setLoader(false);
-         console.log('single video -',error);
+        //  console.log('single video -',error);
       }
      })();
    },[params.videoId]);
 
-
   return (
     <>
       <div className = "singlevideo-container" style = {{display:'grid',gridTemplateColumns:'1fr 4fr'}}>
+              
               <div className = "singlevideo-navbar">
                   <NavMenu />
                </div>
+
                <div className = "singlevideo-bar">
-               <iframe
-                  width="100%"
-                  height="80%"
-                  src={`https://www.youtube.com/embed/${params.videoId}?autoplay=1`}
-                  title="YouTube video player" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-        ></iframe>
+                  <iframe
+                      width="100%"
+                      height="80%"
+                      src={`https://www.youtube.com/embed/${params.videoId}?autoplay=1`}
+                      title="YouTube video player" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                  ></iframe>
+
+                  <div className="singlevideo-details" style = {{margin:'2%'}}>
+                          <div className="buttons-section" style = {{display:'grid',gridTemplateColumns:'1fr 1fr 1fr',justifyContent:'space-evenly'}}>
+                              <button style = {{padding:'2% 1%',width:'30%'}}>  <AiFillLike /> Like </button>
+                              <button style = {{padding:'1% 2%',width:'30%'}}>  <MdPlaylistAdd/> Save </button>
+                              <button style = {{padding:'1% 2%',width:'30%'}}>  <MdWatchLater /> Watch Later </button>
+                          </div>
+                          <div className="title-section">
+                           <span style = {{fontSize:'24px'}}> {title} by {creator} </span>
+                          </div>
+                          <div className="views-section">
+                              <span style = {{fontSize:'20px'}}> {views} by {date} </span>
+                          </div>
+                          
+                  </div>
                </div>
+
+               
       </div>
     </>
   )

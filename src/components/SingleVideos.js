@@ -50,7 +50,7 @@ const SingleVideos = () => {
                           <div className="buttons-section" style = {{display:'grid',gridTemplateColumns:'1fr 1fr 1fr',justifyContent:'space-evenly'}}>
                               <button style = {{padding:'2% 1%',width:'30%'}}>  <AiFillLike /> Like </button>
                               <button style = {{padding:'1% 2%',width:'30%'}}>  <MdPlaylistAdd/> Save </button>
-                              <button style = {{padding:'1% 2%',width:'30%'}}>  <MdWatchLater /> Watch Later </button>
+                              <button style = {{padding:'1% 2%',width:'50%'}}>  <MdWatchLater /> Watch Later </button>
                           </div>
                           <div className="title-section">
                            <span style = {{fontSize:'24px'}}> {title} by {creator} </span>

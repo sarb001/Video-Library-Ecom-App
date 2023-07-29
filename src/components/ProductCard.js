@@ -1,11 +1,14 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const ProductCard = ({maindata}) => {
-    const {thumbnail ,creator ,title , views ,length ,profile , date} = maindata;
+    const {thumbnail ,creator ,title , views ,length ,profile , date  } = maindata;
+     const navigate = useNavigate();
 
      const handlevideoplayer = () => {
-        
-     }
+
+          navigate(`/singlevideo/${maindata._id}`);
+     };
 
   return (
     <>

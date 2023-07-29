@@ -11,6 +11,7 @@ import LikedVideos from './LikedVideos';
 import History from './History';
 import WatchLater from './WatchLater';
 import Playlist from './Playlist';
+import SingleVideos from './SingleVideos';
 
 const MenuRoute = () => {
   return (
@@ -18,8 +19,7 @@ const MenuRoute = () => {
       <ToastContainer  autoClose = {1000} />
       <Routes>
               <Route path = "/"         element = {<VideoListing />}>  </Route>
-              {/* <Route path = "/singlevideo/:videoId"    element = {<dd  />}>  </Route> */}
-
+              <Route path = "/singlevideo/:videoId"    element = {<SingleVideos  />}>  </Route>
               <Route path = "/login"    element = {<Login />}>  </Route>
               <Route path = "/signup"   element = {<Signup />}>  </Route>
               <Route path = "/profile"  element = {<UserProfile  />}>  </Route>

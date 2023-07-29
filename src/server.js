@@ -42,7 +42,9 @@ export function makeServer({ environment = "development" } = {}){
             //  Video handler 
 
             this.get('/videos',getallvideoshandler.bind(this));
-            this.get('/video/:videoId',getSingleVideoHandler.bind(this));
+            this.get('video/:videoId',getSingleVideoHandler.bind(this));
+
+
         }
     })
 }

@@ -3,11 +3,15 @@ import React from 'react'
 const ProductCard = ({maindata}) => {
     const {thumbnail ,creator ,title , views ,length ,profile , date} = maindata;
 
+     const handlevideoplayer = () => {
+        
+     }
+
   return (
     <>
         <div className="productcard-container" style = {{width:'90%',margin:'1%',cursor:'pointer'}}>
-                    <div className = "img-container">
-                    <img src = {thumbnail}  style = {{width:'100%'}} />
+                    <div className = "img-container"  onClick = {handlevideoplayer} >
+                       <img src = {thumbnail}  style = {{width:'100%'}} />
                     </div>
 
                     <div className  = "bottom-container" style = {{display:'grid',gridTemplateColumns:'0.5fr 2fr 1fr'}}>

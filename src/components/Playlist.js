@@ -11,13 +11,10 @@ const Playlist = () => {
               
              <div className="sidebar-container" style = {{backgroundColor:'#dee2e6'}}>
 
-                    <div className="top-categories" style = {{paddingTop:'2%',cursor:'pointer'}}>
-                        <span style = {{padding:'1% 4%',backgroundColor:'royalblue',borderRadius:'50px'}}> All </span>
-                        <span style = {{padding:'1% 4%',backgroundColor:'royalblue',borderRadius:'50px'}}> Stock2  </span>
-                        <span style = {{padding:'1% 4%',backgroundColor:'royalblue',borderRadius:'50px'}}> Real3  </span>
-                        <span style = {{padding:'1% 4%',backgroundColor:'royalblue',borderRadius:'50px'}}> Real4  </span>
-                        <span style = {{padding:'1% 4%',backgroundColor:'royalblue',borderRadius:'50px'}}> Real5  </span>
-                    </div>
+                    <div className="top-categories" style = {{paddingTop:'2%',cursor:'pointer',color:'black',textAlign:'center'}}>
+                        <h2>  Your Playlist  </h2>
+                        <h4> You have no Playlist  </h4>
+                     </div>
 
                     <div className="videos-section">
                           

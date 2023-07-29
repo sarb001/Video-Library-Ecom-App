@@ -47,29 +47,24 @@ export function makeServer({ environment = "development" } = {}){
             //  Video handler 
 
             // all  videos 
-
             this.get('/videos',getallvideoshandler.bind(this));
             this.get('/video/:videoId',getSingleVideoHandler.bind(this));
 
             // categories Route 
-
             this.get('/categories',getallcategorieshandler.bind(this));
             this.get('/categories/:categoryId',getSinglecategoryhandler.bind(this));
 
             // likes Handler 
-
             this.get('/user/likes',getallLikesHandler.bind(this));
             this.post('/user/likes',addtoLikesHandler.bind(this));
             this.delete('/user/likes/:videoId',removefromLikesHandler.bind(this));
 
              // watch later 
-             
              this.get('/user/watchlater',getallwatchlaterHandler.bind(this));
              this.post('/user/watchlater',addtowatchlaterHandler.bind(this));
              this.delete('/user/watchlater/:videoId',removefromwatchlaterHandler.bind(this));
              
              // history 
-
              this.get('/user/history' ,   getallhistoryHandler.bind(this));
              this.post('/user/history',  addtohistoryHandler.bind(this));
              this.delete('/user/history/:videoId',removevideofromhistoryHandler.bind(this));

@@ -7,6 +7,7 @@ const VideoListing = () => {
 
    const [videos,setvideos]= useState([]);
    const [categoryvideos,setcategoryvideos]= useState([]);
+   const [currentcategory,setcurrentcategory]= useState("All");
    const [loader,setloader] = useState(true);
 
    const videoCategory = [
@@ -31,6 +32,11 @@ const VideoListing = () => {
           })();
    },[])  
 
+   const handlefiltercategory = (category) => {
+     setcurrentcategory(category);
+     const filterdata = videos.filter((item) =>  item.category.toLowerCase() === category.toLowerCase());
+     setcategoryvideos(filterdata);
+    }
 
   return (
     <>
@@ -44,14 +50,18 @@ const VideoListing = () => {
                     <div className="top-categories" style = {{paddingTop:'2%',cursor:'pointer',paddingBottom:'2%'}}>
                       <span style = {{padding:'1% 4%',backgroundColor:'royalblue',borderRadius:'50px'}}> All </span>
                         {videoCategory.map((item) => (
-                          <span style = {{padding:'1% 4%',backgroundColor:'royalblue',borderRadius:'50px'}}> {item} 
-                      </span>
+                          <span 
+                           key = {item}
+                            onClick={() => handlefiltercategory(item)}
+                           style = {{padding:'1% 4%',backgroundColor:'royalblue',borderRadius:'50px'}}> 
+                          {item} 
+                          </span>
                         ))}
                     </div>
 
                     <div className="videos-section" style = {{margin:'3%',color:'black',display:'grid',gridTemplateColumns:'1fr 1fr'}}>
                        {categoryvideos.map((item) => (
-                          <ProductCard   maindata = {item} key = {item.id} />
+                          <ProductCard   maindata = {item} key = {item._id} />
                        ))}
                     </div>
              </div>

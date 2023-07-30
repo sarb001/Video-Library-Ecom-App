@@ -25,7 +25,10 @@ const MenuRoute = () => {
               <Route path = "/profile"  element = {<UserProfile  />}>  </Route>
               
               <Route path = "/search"  element = {<Search  />}>  </Route>
-              <Route path = "/likedvideos"  element = {<LikedVideos  />}>  </Route>
+              <Route path = "/likedvideos"  element = {
+                  
+              <LikedVideos  />
+              }>  </Route>
               <Route path = "/history"  element = {<History  />}>  </Route>
               <Route path = "/watchlater"  element = {<WatchLater />}>  </Route>
               <Route path = "/playlist"  element = {<Playlist  />}>  </Route>

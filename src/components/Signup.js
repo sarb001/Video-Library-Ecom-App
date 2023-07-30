@@ -5,9 +5,11 @@ import {useState} from "react";
 import {toast} from "react-toastify";
 import axios from "axios";
 import NavMenu from "./NavMenu";
+import { useAuth } from "../Context/authContext";
 
 const Signup = () => {
 
+   const { setAuth } = useAuth();
   const navigate = useNavigate();
   const [signUpData, setSignUpData] = useState({
     firstName: "",
@@ -44,6 +46,7 @@ const Signup = () => {
       };
       localStorage.setItem("token", response.data.encodedToken);
       localStorage.setItem("userData", JSON.stringify(userData));
+      setAuth({ token : response.data.encodedToken ,isLoggedIn : true });
       toast.success("Successfully Signed In");
       navigate("/");
     } catch (err) {

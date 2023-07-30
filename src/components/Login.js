@@ -5,8 +5,11 @@ import {useNavigate, Link, useLocation} from "react-router-dom";
 import {toast} from "react-toastify";
 import axios from "axios";
 import NavMenu from './NavMenu';
+import { useAuth } from '../Context/authContext';
 
 const Login = () => {
+
+  const { setAuth } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
@@ -35,6 +38,7 @@ const Login = () => {
       const response = await axios.post("/api/auth/login", {email, password});
       localStorage.setItem("userData", JSON.stringify(response.data.foundUser));
       localStorage.setItem("token", response.data.encodedToken);
+      setAuth({ token : response.data.encodedToken ,isLoggedIn : true });
       toast.success("You have logged in");
       navigate(from, {replace: true});
     } catch (err) {

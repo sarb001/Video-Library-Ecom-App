@@ -17,15 +17,15 @@ const VideoOption = ({isOptionActive ,video}) => {
     <>
         <div className="videooption-container">
             <button onClick = {handlewatchlater}> 
-              {IsVideoPresent() ?  " Remove from Watch Later " 
-              : " Save to watch later "}
+              {/* {IsVideoPresent() ?  " Remove from Watch Later " 
+              : " Save to watch later "} */}
              </button>
             <button onClick = {handlesaveplaylist}> 
                 <span> <IoAddCircleSharp /> Save to PlayList </span>
              </button>
             <button onClick = {handlelikevideo}> 
-            {IsVideoPresent() ?  " Remove from Liked Video " 
-              : " Add to Liked Videos "}
+            {/* {IsVideoPresent() ?  " Remove from Liked Video " 
+              : " Add to Liked Videos "} */}
              </button>
              {location.pathname === "/history" && (
                  <button onClick = {handleRemoveVideo}>

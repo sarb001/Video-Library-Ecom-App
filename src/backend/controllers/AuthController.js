@@ -5,10 +5,11 @@ const sign = require('jwt-encode');
 
 
 export const  signupHandler = function(schema,request){
-    const {  email , password , ...rest } = JSON.parse(request.requestBody);
+    const { email , password , ...rest } = JSON.parse(request.requestBody);
     try{
 
          const foundUser = schema.users.findBy({ email });
+     
          if(foundUser){
             return new Response(422 , {} ,
                 {
@@ -29,6 +30,7 @@ export const  signupHandler = function(schema,request){
             watchlater : [], 
          };
         const createdUser = schema.users.create(newUser);
+        console.log('created user 0 -',createdUser);
         const encodedToken = sign({_id : email} , 'sarb@123');
         return new Response(201 , {} , {createdUser , encodedToken });
     }catch(error){

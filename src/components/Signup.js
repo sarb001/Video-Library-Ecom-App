@@ -66,16 +66,17 @@ const Signup = () => {
 
   const handleTestInput = () => {
     setSignUpData({
-      firstName: "Jhon",
-      lastName: "Doe",
-      email: "jhondoe@gmail.com",
-      password: "jhon@123",
-      confirmPassword: "jhon@123",
+      firstName: "testuser1",
+      lastName: "singh",
+      email: "testuser1@gmail.com",
+      password: "testuser1@123",
+      confirmPassword: "testuser1@123",
     });
   };
+
   return (
-    <section className="app-ctn" style = {{display:'grid',gridTemplateColumns:'1fr 4fr'}}>
-        <div className="signup-section">
+    <section className = "app-ctn" style = {{display:'grid',gridTemplateColumns:'1fr 4fr'}}>
+        <div className = "signup-section">
             <NavMenu />
         </div>
           <div>

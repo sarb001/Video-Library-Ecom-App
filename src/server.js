@@ -8,6 +8,7 @@ import { addtoLikesHandler, getallLikesHandler, removefromLikesHandler } from '.
 import { addtohistoryHandler, clearhistoryHandler, getallhistoryHandler, removevideofromhistoryHandler } from './backend/controllers/HistoryController';
 import { getallplaylistHandler } from './backend/controllers/PlayListController';
 import { addtowatchlaterHandler, getallwatchlaterHandler, removefromwatchlaterHandler } from './backend/controllers/WatchLaterController';
+import { loginHandler, signupHandler } from './backend/controllers/AuthController';
 
 export function makeServer({ environment = "development" } = {}){
     return new Server({
@@ -45,6 +46,9 @@ export function makeServer({ environment = "development" } = {}){
 
             this.namespace = "api" ;
             //  Video handler 
+
+            this.post('/auth/signup',signupHandler.bind(this));
+            this.post('/auth/login',loginHandler.bind(this));
 
             // all  videos 
             this.get('/videos',getallvideoshandler.bind(this));

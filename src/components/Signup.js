@@ -71,8 +71,10 @@ const Signup = () => {
     });
   };
   return (
-    <section className="app-ctn">
-      <NavMenu />
+    <section className="app-ctn" style = {{display:'grid',gridTemplateColumns:'1fr 4fr'}}>
+        <div className="signup-section">
+            <NavMenu />
+        </div>
           <div>
             <form className="br-md auth-form" onSubmit={handleSignUp}>
               <h2 className="text-center mg-bottom-md">Signup</h2>

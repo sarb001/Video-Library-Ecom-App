@@ -12,7 +12,8 @@ import History from './History';
 import WatchLater from './WatchLater';
 import Playlist from './Playlist';
 import SingleVideos from './SingleVideos';
-import { RequireAuth } from './RequireAuth';
+import  RequireAuth  from './RequireAuth';
+import LightMode from './LightMode';
 
 const MenuRoute = () => {
   return (
@@ -24,6 +25,7 @@ const MenuRoute = () => {
               <Route path = "/login"    element = {<Login />}>  </Route>
               <Route path = "/signup"   element = {<Signup />}>  </Route>
               <Route path = "/profile"  element = {<UserProfile  />}>  </Route>
+              <Route path = "/lightmode"  element = {<LightMode />}>  </Route>
               
               <Route path = "/search"  element = {<Search  />}>  </Route>
               <Route path = "/likedvideos"  element = {

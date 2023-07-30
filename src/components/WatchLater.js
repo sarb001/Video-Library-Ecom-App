@@ -4,12 +4,6 @@ import axios from 'axios'
 
 const WatchLater = () => {
 
-  useEffect(async() => {
-       const response = await axios.get('/api/user/watchlater');
-       console.log('reponse in watchlater -',response); 
-  },[])
-
-
   return (
     <>
       <div className="watchlater-container" style = {{display:'grid',gridTemplateColumns:'1fr 4fr'}}>

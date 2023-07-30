@@ -113,7 +113,7 @@ const Login = () => {
               <button
                 className="btn btn-primary-outline"
                 onClick={(e) =>
-                  handleLogin(e, "pratikdevle@gmail.com", "pratik@123")
+                  handleLogin(e, "testuser@gmail.com", "testuser@123")
                 }
               >
                 Login with test credentials

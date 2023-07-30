@@ -38,12 +38,12 @@ const UserProfile = () => {
           <div className="pd-bottom-lg">
             <p>Name</p>
             <p className="para-lg">
-              {/* {userData.firstName + " " + userData.lastName} */}
+              {userData.firstName + " " + userData.lastName}
             </p>
           </div>
           <div className="pd-bottom-lg">
             <p>Email</p>
-            {/* <p className="para-lg">{userData.email}</p> */}
+            <p className="para-lg">{userData.email}</p>
           </div>
           <button className="btn btn-primary" onClick={handleLogout}>
             Logout

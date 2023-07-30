@@ -1,5 +1,5 @@
-import { Response } from "miragejs";
 
+import { Response } from "miragejs";
 
 export const getallLikesHandler = function(schema,request){
     const user = requiresAuth.call(this,request);

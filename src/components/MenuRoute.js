@@ -12,6 +12,7 @@ import History from './History';
 import WatchLater from './WatchLater';
 import Playlist from './Playlist';
 import SingleVideos from './SingleVideos';
+import { RequireAuth } from './RequireAuth';
 
 const MenuRoute = () => {
   return (
@@ -26,12 +27,25 @@ const MenuRoute = () => {
               
               <Route path = "/search"  element = {<Search  />}>  </Route>
               <Route path = "/likedvideos"  element = {
-                  
-              <LikedVideos  />
+                <RequireAuth>
+                  <LikedVideos  />
+                </RequireAuth>
               }>  </Route>
-              <Route path = "/history"  element = {<History  />}>  </Route>
-              <Route path = "/watchlater"  element = {<WatchLater />}>  </Route>
-              <Route path = "/playlist"  element = {<Playlist  />}>  </Route>
+              <Route path = "/history"  element = {
+                <RequireAuth>
+                   <History  />
+                </RequireAuth>
+              }>  </Route>
+              <Route path = "/watchlater"  element = {
+                <RequireAuth>
+                  <WatchLater />
+                </RequireAuth>
+              }>  </Route>
+              <Route path = "/playlist"  element = {
+                <RequireAuth>
+                   <Playlist  />
+                </RequireAuth>
+              }>  </Route>
       </Routes>
     </>
   )

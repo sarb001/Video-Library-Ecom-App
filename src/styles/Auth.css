@@ -1,0 +1,93 @@
+form.auth-form {
+    background-color: white;
+    padding: 2rem 4rem;
+    width: 100%;
+    border-radius: 8px;
+    margin: 4rem auto;
+    max-width: 31.25rem;
+    box-shadow:rgb(51, 255, 0);
+    color: black;
+  }
+  
+  .form-control {
+    padding-bottom: 1rem;
+    position: relative;
+  }
+  
+  .form-control label {
+    display: block;
+    padding-bottom: 0.125rem;
+  }
+  
+  .form-control label[for="remember-me"],
+  .form-control label[for="terms-condition"] {
+    display: inline-block;
+    padding-left: 0.5rem;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 0.5rem;
+    font-family: inherit;
+    font-size: inherit;
+    border: 2px solid black;
+    border-radius: 6px;
+  }
+  
+  input:focus {
+    border-color:red;
+  }
+  
+  .form-control button {
+    width: 100%;
+  }
+  
+  .account-toggle a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:red;
+  }
+  
+  .hide-password {
+    position: absolute;
+    right: 0.5rem;
+    bottom: 1rem;
+  }
+  
+  /* login */
+  .forgot-pw {
+    padding-left: 3rem;
+    color: #a78bfa;
+  }
+  
+  /* logout */
+  .logout-btns {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  button.btn-icon-text-outline {
+    margin: 0;
+    background-color: rgb(78, 73, 73);
+  }
+  
+  /* error */
+  .error-msg {
+    color: red;
+  }
+  
+  @media screen and (max-width: 800px) {
+    form.auth-form {
+      width: 90%;
+      padding: 1.5rem;
+    }
+  
+    .forgot-pw {
+      display: block;
+      padding: 0;
+    }
+  }
+  

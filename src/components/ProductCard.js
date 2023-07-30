@@ -1,20 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import VideoOption from './VideoOption';
 
 const ProductCard = ({maindata}) => {
     const {thumbnail ,creator ,title , views ,profile , date  } = maindata;
      const navigate = useNavigate();
+     const [isOptionActive,setisOptionActive] = useState(false);
 
      const handlevideoplayer = () => {
           navigate(`/singlevideo/${maindata._id}`);
      };
-
-      const savedtowatchlater = () => {
-        
-      }
-      const savedtoplaylist = () => {}
-      const addtolikedvideos = () => {}
-
 
   return (
     <>
@@ -42,10 +37,11 @@ const ProductCard = ({maindata}) => {
                             </div>
 
                             <div className="bottom-third-section">
-                                <button onClick={savedtowatchlater} > Save to watch Later  </button>
-                                <button onClick={savedtoplaylist}> Save to playlist  </button>
-                                <button onClick={addtolikedvideos}> Add to liked videos </button>
-                            </div>
+                                <VideoOption 
+                                 isOptionActive= {isOptionActive}
+                                 video = {maindata}
+                                />
+                             </div>
                     </div>
             
         </div>

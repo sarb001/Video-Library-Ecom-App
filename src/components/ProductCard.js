@@ -2,14 +2,21 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import VideoOption from './VideoOption';
 import { useUserData } from '../Context/UserDataContext';
+import { useAuth } from '../Context/authContext';
+import IsVideoPresent from '../utils/IsVideoPresent';
+import { addtoHistory } from '../Services/HistoryServices';
 
 const ProductCard = ({maindata}) => {
-    const {thumbnail ,creator ,title , views ,profile , date  } = maindata;
+     const {thumbnail ,creator ,title , views ,profile , date  } = maindata;
      const navigate = useNavigate();
      const [isOptionActive,setisOptionActive] = useState(false);
      const {userState,userDispatch} = useUserData();
+     const { auth } = useAuth();
 
      const handlevideoplayer = () => {
+            if(auth.token && !IsVideoPresent(userState.history,maindata._id)){
+                addtoHistory(maindata,auth.token,userDispatch);
+            }
           navigate(`/singlevideo/${maindata._id}`);
      };
 

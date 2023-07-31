@@ -19,8 +19,10 @@ export const userDataReducer = (state,action) => {
         
         case "HISTORY_ACTIONS" :
             return {
-
+                ...state,
+                history : [...action.payload]
             }
-    
+        default :
+        return {state};
     }
 }

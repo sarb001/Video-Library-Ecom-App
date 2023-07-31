@@ -11,33 +11,33 @@ const VideoListing = () => {
    const [currentcategory,setcurrentcategory]= useState("All");
    const [loader,setloader] = useState(true);
 
-   const videoCategory = [
-    "Stock Investing",
-    "Real Estate",
-    "Basic Finance",
-    "Self Help",
-  ];
+    const videoCategory = [
+      "Stock Investing",
+      "Real Estate",
+      "Basic Finance",
+      "Self Help",
+    ];
 
-   useEffect(() => {
-        (async () => {
-          try{
-            const response = await axios.get('/api/videos');
-            // console.log('Fetching Videos -',response.data.videos);
-            setloader(false);
-            setvideos(response.data.videos);
-            setcategoryvideos(response.data.videos);
-          }catch(err){  
-             setloader(false);
-            //  console.log(' Video Listing Error ',err);
-          } 
-          })();
-   },[])  
+    useEffect(() => {
+          (async () => {
+            try{
+              const response = await axios.get('/api/videos');
+              // console.log('Fetching Videos -',response.data.videos);
+              setloader(false);
+              setvideos(response.data.videos);
+              setcategoryvideos(response.data.videos);
+            }catch(err){  
+              setloader(false);
+              //  console.log(' Video Listing Error ',err);
+            } 
+            })();
+    },[])  
 
-   const handlefiltercategory = (category) => {
-     setcurrentcategory(category);
-     const filterdata = videos.filter((item) =>  item.category.toLowerCase() === category.toLowerCase());
-     setcategoryvideos(filterdata);
-    }
+    const handlefiltercategory = (category) => {
+      setcurrentcategory(category);
+      const filterdata = videos.filter((item) =>  item.category.toLowerCase() === category.toLowerCase());
+      setcategoryvideos(filterdata);
+      }
 
      const isChipActive = (item) => {
         return currentcategory.toLowerCase() === item.toLowerCase() ? 'chip-active' : null;
@@ -46,6 +46,7 @@ const VideoListing = () => {
   return (
     <>
         <div className="video-container" style = {{display:'grid',gridTemplateColumns:'1fr 4fr'}}>
+            
               <div className="navbar-container" style = {{backgroundColor:'black',color:'white'}}>
                 <NavMenu />
               </div>
@@ -54,8 +55,9 @@ const VideoListing = () => {
 
                     <div className="top-categories" style = {{paddingTop:'2%',cursor:'pointer',paddingBottom:'2%'}}>
                       <span
-                       className={`chip ${isChipActive("All")}`}
-                      > All </span>
+                       className={`chip ${isChipActive("All")}`}>
+                        All 
+                      </span>
                         {videoCategory.map((item) => (
                           <span 
                             className={`chip ${isChipActive(item)}`}
@@ -72,6 +74,7 @@ const VideoListing = () => {
                           <ProductCard   maindata = {item} key = {item._id} />
                        ))}
                     </div>
+
              </div>
         </div>
     </>

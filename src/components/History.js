@@ -2,27 +2,35 @@ import React, { useEffect } from 'react'
 import NavMenu from './NavMenu'
 import axios from 'axios';
 import { useUserData } from '../Context/UserDataContext';
+import { useAuth } from '../Context/authContext';
+import ProductCard from './ProductCard';
 
 const History = () => {
   
-   const token  = localStorage.getItem('token');
-   const {userDispatch} = useUserData();
+   const { auth }  = useAuth();
+   const {userState,userDispatch} = useUserData();
 
-  useEffect(() => {
+    const token  = localStorage.getItem('token');
+    console.log('userstate in history  1 -',userState);
+
+   useEffect(() => {
     (async () => {
-      try{
-          const response = await axios.get('/api/user/history' , {
-               headers : { authorization : token },
-          });
-          userDispatch({
-              type : "HISTORY_ACTIONS",
-              payload : response.data.history,
-          });
-      }catch(err){
-          console.log('get history Error',err);
+      try {
+        const response = await axios.get("/api/user/history", {
+          headers: {authorization: token},
+        });
+        console.log('response in histpry -',response);
+        userDispatch({
+          type: "HISTORY_ACTIONS",
+          payload: response.data.history,
+        });
+      } catch (err) {
+        console.error("get history", err);
       }
-   })();
-  },[])
+    })();
+   },[])
+
+   console.log('userstate in history  2 -',userState);
 
   return (
     <>
@@ -33,14 +41,17 @@ const History = () => {
               
              <div className="sidebar-container" style = {{backgroundColor:'#dee2e6'}}>
 
-                    <div className="top-categories" style = {{paddingTop:'2%',cursor:'pointer',color:'black',textAlign:'center'}}>
-                        <h2>  Your History </h2>
-                        <h4> Your history is empty! </h4>
-                    </div>
+                    {   userState?.history?.length === 0 && (
+                        <div className="top-categories" style = {{paddingTop:'2%',cursor:'pointer',color:'black',textAlign:'center'}}>
+                            <h2>  Your History </h2>
+                            <h4> Your history is empty! </h4>
+                        </div>
+                    )}
 
-                    <div className="videos-section">
-                          
-                    </div>
+                    {userState?.history?.map((item) => (
+                          <ProductCard  maindata={item}  key = {item._id} />
+                    ))}
+                    {/* <div className="videos-section"></div> */}
              </div>
         </div>
     </>

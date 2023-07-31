@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import VideoOption from './VideoOption';
+import { useUserData } from '../Context/UserDataContext';
 
 const ProductCard = ({maindata}) => {
     const {thumbnail ,creator ,title , views ,profile , date  } = maindata;
      const navigate = useNavigate();
      const [isOptionActive,setisOptionActive] = useState(false);
+     const {userState,userDispatch} = useUserData();
 
      const handlevideoplayer = () => {
           navigate(`/singlevideo/${maindata._id}`);

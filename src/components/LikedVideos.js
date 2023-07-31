@@ -1,7 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import NavMenu from './NavMenu'
+import { useUserData } from '../Context/UserDataContext';
+import axios from 'axios';
 
 const LikedVideos = () => {
+
+  const token  = localStorage.getItem('token');
+  const { userDispatch } = useUserData();
+
+  useEffect(() => {
+      (async () => {
+        try{
+            const response = await axios.get('/api/user/likes' , {
+                headers : { authorization : token },
+            });
+            userDispatch({
+                type : "LIKED_VIDEOS",
+                payload : response.data.likes,
+            });
+        }catch(err){
+            console.log('get Likes Error',err);
+        }
+    })()
+},[])
+
   return (
     <>
        <div className="likedvideos-container" style = {{display:'grid',gridTemplateColumns:'1fr 4fr'}}>

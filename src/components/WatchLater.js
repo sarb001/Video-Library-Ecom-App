@@ -1,8 +1,29 @@
 import React, { useEffect } from 'react'
 import NavMenu from './NavMenu'
 import axios from 'axios'
+import { useUserData } from '../Context/UserDataContext';
 
 const WatchLater = () => {
+
+  const token  = localStorage.getItem('token');
+  const { userDispatch } = useUserData();
+
+   useEffect(() => {
+      (async () => {
+        try{
+            const response = await axios.get('/api/user/watchlater' , {
+                headers : { authorization : token },
+            });
+            userDispatch({
+                type : "WATCH_LATER_ACTIONS",
+                payload : response.data.watchlater,
+            });
+        }catch(err){
+            console.log('get watch later  Error',err);
+        }
+    })();
+   },[])
+
 
   return (
     <>

@@ -4,12 +4,15 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { AiFillLike , AiOutlineLike } from 'react-icons/ai';
 import { MdPlaylistAdd , MdWatchLater , MdOutlineWatchLater } from 'react-icons/md';
+import IsVideoPresent from '../utils/IsVideoPresent';
+import { useUserData } from '../Context/UserDataContext';
 
 const SingleVideos = () => {
 
    const [singlevideo,setsinglevideo] = useState({});
    const [Loader,setLoader] =  useState(true);
 
+   const {userState,userDispatch} = useUserData();
    const params = useParams();
    
    const {title ,creator ,views ,date} = singlevideo;
@@ -47,14 +50,18 @@ const SingleVideos = () => {
                   <div className="singlevideo-details" style = {{margin:'2%'}}>
                           <div className="buttons-section" style = {{display:'grid',gridTemplateColumns:'1fr 1fr 1fr',justifyContent:'space-evenly'}}>
                               <button style = {{padding:'2% 1%',width:'30%'}}> 
-                               <AiOutlineLike />
-                               <AiFillLike />
-                                Like </button>
-                              <button style = {{padding:'1% 2%',width:'30%'}}>  <MdPlaylistAdd/> Save </button>
+                              {IsVideoPresent(userState.likedVideos , singlevideo._id) 
+                                  ?   <AiFillLike /> 
+                                  :   <AiOutlineLike /> }
+                                  Like 
+                              </button>
+                              <button style = {{padding:'1% 2%',width:'30%'}}>  <MdPlaylistAdd /> Save </button>
                               <button style = {{padding:'1% 2%',width:'50%'}}>  
-                              <MdOutlineWatchLater />
-                              <MdWatchLater /> 
-                              Watch Later </button>
+                              {IsVideoPresent(userState.watchlater, singlevideo._id) 
+                                ? <MdWatchLater /> 
+                                : <MdOutlineWatchLater /> }
+                                 Watch Later 
+                             </button>
                           </div>
                           <div className="title-section">
                            <span style = {{fontSize:'24px'}}> {title} by {creator} </span>

@@ -9,13 +9,12 @@ export const userDataReducer = (state,action) => {
         
         case  "LIKED_VIDEOS"  :
             return {
-                ...state,
-                likedVideos : [...action.payload]
+                ...state,likedVideos : [...action.payload]
             }
         
-        case "WATCH_LATER_ACTIONS"  :
+        case "WATCH_LATER"  :
             return {
-
+                ...state, watchlater : [...action.payload]
             }
         
         case "HISTORY_ACTIONS" :

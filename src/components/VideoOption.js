@@ -3,12 +3,11 @@ import {IoAddCircleSharp} from 'react-icons/io5';
 import IsVideoPresent from '../utils/IsVideoPresent';
 import { useLocation } from 'react-router-dom';
 import { useAuth } from '../Context/authContext';
-import AddedtoLikedVideos from '../Services/AddedtoLikedVideos';
 import { useUserData } from '../Context/UserDataContext';
-import RemovefromLikedVideo from '../Services/RemovefromLikedVideo';
 import { LikeService } from '../Services/LikeService';
 import { useNavigate } from 'react-router-dom' ;
 import Removefromhistory from '../Services/Removefromhistory';
+import WatchLaterService from '../Services/WatchLaterService';
 
 const VideoOption = ({isOptionActive ,video}) => {
 
@@ -18,7 +17,15 @@ const VideoOption = ({isOptionActive ,video}) => {
      const { auth } = useAuth();
      console.log('auth in Video option is -',auth);
 
-     const handlewatchlater =   () => {}
+     const handlewatchlater =   () => {
+        WatchLaterService(
+            userState.watchlater,
+            auth,
+            video,
+            userDispatch,
+            navigate
+        )
+     }
      const handlesaveplaylist = () => {}
 
      const handlelikevideo =  () => {

@@ -2,11 +2,12 @@ import React, { useEffect } from 'react'
 import NavMenu from './NavMenu'
 import axios from 'axios'
 import { useUserData } from '../Context/UserDataContext';
+import ProductCard from './ProductCard';
 
 const WatchLater = () => {
 
   const token  = localStorage.getItem('token');
-  const { userDispatch } = useUserData();
+  const { userState , userDispatch } = useUserData();
 
    useEffect(() => {
       (async () => {
@@ -15,7 +16,7 @@ const WatchLater = () => {
                 headers : { authorization : token },
             });
             userDispatch({
-                type : "WATCH_LATER_ACTIONS",
+                type : "WATCH_LATER",
                 payload : response.data.watchlater,
             });
         }catch(err){
@@ -34,13 +35,17 @@ const WatchLater = () => {
               
              <div className="sidebar-container" style = {{backgroundColor:'#dee2e6'}}>
 
-                    <div className="top-categories" style = {{paddingTop:'2%',cursor:'pointer',color:'black',textAlign:'center'}}>
                         <h2>  Watch Later </h2>
-                        <h4> You have no watch later videos </h4>
+                    <div className="top-categories" style = {{paddingTop:'2%',cursor:'pointer',color:'black',textAlign:'center'}}>
+                          {userState?.watchlater?.length === 0 && (
+                            <h4> You have no watch later videos </h4>
+                          )}
                     </div>
 
                     <div className="videos-section">
-                          
+                          {userState?.watchlater?.map((item) => (
+                            <ProductCard  maindata = {item} key = {item._id} />
+                          ))}
                     </div>
              </div>
         </div>

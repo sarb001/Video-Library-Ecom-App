@@ -39,10 +39,9 @@ export const addtowatchlaterHandler = function(schema,request){
 export const removefromwatchlaterHandler = function(schema,request){
     const user = requiresAuth.call(this,request);
     if(user){
-        const videoid = request.params.videoid;
+        const videoId = request.params.videoId;
         const filtervideo = user.watchlater.filter((item) => (
-            item._id !== videoid
-        ));
+            item._id !== videoId ));
         this.db.users.update({watchlater : filtervideo});
         return new Response(200 , {} , {watchlater: filtervideo})
     }

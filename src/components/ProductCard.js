@@ -38,7 +38,6 @@ const ProductCard = ({maindata}) => {
 
                             <div className = "bottom-second-section">
                                 <b>
-                                {/* <span>   {title?.slice(0,22)} </span> */}
                                 <div>    {creator} </div>
                                 <span>   {views?.slice(0,2)}M  </span>
                                 <span> {date} </span>

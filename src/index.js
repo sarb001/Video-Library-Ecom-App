@@ -6,6 +6,7 @@ import { makeServer } from './server';
 import { AuthProvider } from './Context/authContext';
 import { UserDataProvider } from './Context/UserDataContext';
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 makeServer();

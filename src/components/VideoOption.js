@@ -8,6 +8,7 @@ import { LikeService } from '../Services/LikeService';
 import { useNavigate } from 'react-router-dom' ;
 import Removefromhistory from '../Services/Removefromhistory';
 import WatchLaterService from '../Services/WatchLaterService';
+import PlayListModal from './PlayListModal';
 
 const VideoOption = ({isOptionActive ,video}) => {
 
@@ -50,7 +51,11 @@ const VideoOption = ({isOptionActive ,video}) => {
               : "  Save to watch later "}
              </button>
             <button onClick = {handlesaveplaylist}> 
-                <span> <IoAddCircleSharp /> Save to PlayList </span>
+                <span>
+                 <PlayListModal >
+                   <IoAddCircleSharp /> 
+                 </PlayListModal>
+                 </span>
              </button>
             <button onClick = {handlelikevideo}> 
             {IsVideoPresent(userState.likedVideos , video._id) 

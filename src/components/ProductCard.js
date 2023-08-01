@@ -5,6 +5,7 @@ import { useUserData } from '../Context/UserDataContext';
 import { useAuth } from '../Context/authContext';
 import IsVideoPresent from '../utils/IsVideoPresent';
 import { addtoHistory } from '../Services/HistoryServices';
+import PlayListModal from './PlayListModal';
 
 const ProductCard = ({maindata}) => {
      const {thumbnail ,creator ,title , views ,profile , date  } = maindata;
@@ -19,6 +20,7 @@ const ProductCard = ({maindata}) => {
             }
           navigate(`/singlevideo/${maindata._id}`);
      };
+
 
   return (
     <>
@@ -44,12 +46,12 @@ const ProductCard = ({maindata}) => {
                                 </b>
                             </div>
 
-                            <div className="bottom-third-section">
+                            <div className = "bottom-third-section">
                                 <VideoOption 
                                  isOptionActive= {isOptionActive}
-                                 video = {maindata}
-                                />
+                                 video = {maindata} />
                              </div>
+
                     </div>
             
         </div>

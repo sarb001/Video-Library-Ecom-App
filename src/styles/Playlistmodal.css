@@ -1,0 +1,30 @@
+/* 
+/* playlist modal */
+
+.playlist-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(rgb(101 94 94 / 80%));
+    display: grid;
+    place-items: center;
+    z-index: 1;
+  }
+  
+  .save-playlist-ctn {
+    width: 80%;
+    max-width: 250px;
+    background-color: var(--menu-background);
+    box-shadow: var(--light-shadow);
+  } 
+  
+  .save-playlist-ctn label {
+    cursor: pointer;
+  }
+  
+  .box-title {
+    justify-content: space-between;
+  }
+  

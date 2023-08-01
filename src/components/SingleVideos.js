@@ -84,8 +84,8 @@ const SingleVideos = () => {
                               <button style = {{padding:'1% 2%',width:'50%'}} onClick={watchlaterhandler} >  
                               {IsVideoPresent(userState.watchlater, singlevideo._id) 
                                 ?  (<> <MdWatchLater /> Watched </>)   
-                                :  (<>  <MdOutlineWatchLater /> Watch </>)  }
-                                 Watch Later 
+                                :  (<>  <MdOutlineWatchLater /> Watch Later  </>)  }
+                                 
                              </button>
                           </div>
                           <div className="title-section">
@@ -94,11 +94,8 @@ const SingleVideos = () => {
                           <div className="views-section">
                               <span style = {{fontSize:'20px'}}> {views} by {date} </span>
                           </div>
-                          
                   </div>
-               </div>
-
-               
+               </div>   
       </div>
     </>
   )

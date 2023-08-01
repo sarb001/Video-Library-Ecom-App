@@ -15,7 +15,7 @@ const VideoOption = ({isOptionActive ,video}) => {
      const navigate  = useNavigate();
      const location = useLocation();
      const { auth } = useAuth();
-    //  console.log('auth token is -',auth.token);
+     console.log('auth in Video option is -',auth);
 
      const handlewatchlater =   () => {}
      const handlesaveplaylist = () => {}

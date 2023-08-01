@@ -6,15 +6,18 @@ import { AiFillLike , AiOutlineLike } from 'react-icons/ai';
 import { MdPlaylistAdd , MdWatchLater , MdOutlineWatchLater } from 'react-icons/md';
 import IsVideoPresent from '../utils/IsVideoPresent';
 import { useUserData } from '../Context/UserDataContext';
+import { LikeService } from '../Services/LikeService';
+import { useAuth } from '../Context/authContext';
+import { useNavigate } from 'react-router-dom';
 
 const SingleVideos = () => {
 
-   const [singlevideo,setsinglevideo] = useState({});
+   const [singlevideo,setsinglevideo] = useState({}); 
    const [Loader,setLoader] =  useState(true);
-
+   const navigtion = useNavigate();
    const {userState,userDispatch} = useUserData();
    const params = useParams();
-   
+    const { auth } = useAuth();
    const {title ,creator ,views ,date} = singlevideo;
 
    useEffect(() => {
@@ -28,6 +31,20 @@ const SingleVideos = () => {
       }
      })();
    },[params.videoId]);
+
+   const handlelikeVideo = () => {
+    LikeService(
+      userState.likedVideos,
+      auth,
+      singlevideo,
+      userDispatch,
+      navigtion
+    )
+   }
+
+   const watchlaterhandler = () => {
+
+   }
 
   return (
     <>
@@ -49,17 +66,18 @@ const SingleVideos = () => {
 
                   <div className="singlevideo-details" style = {{margin:'2%'}}>
                           <div className="buttons-section" style = {{display:'grid',gridTemplateColumns:'1fr 1fr 1fr',justifyContent:'space-evenly'}}>
-                              <button style = {{padding:'2% 1%',width:'30%'}}> 
+                              <button style = {{padding:'2% 1%',width:'30%'}}  onClick = {handlelikeVideo} > 
                               {IsVideoPresent(userState.likedVideos , singlevideo._id) 
-                                  ?   <AiFillLike /> 
-                                  :   <AiOutlineLike /> }
-                                  Like 
+                                  ?  ( <>  <AiFillLike />     Liked </>  )  
+                                  :  ( <>  <AiOutlineLike />  Like  </>  ) 
+                                  }
+                                 
                               </button>
                               <button style = {{padding:'1% 2%',width:'30%'}}>  <MdPlaylistAdd /> Save </button>
-                              <button style = {{padding:'1% 2%',width:'50%'}}>  
+                              <button style = {{padding:'1% 2%',width:'50%'}} onClick={watchlaterhandler} >  
                               {IsVideoPresent(userState.watchlater, singlevideo._id) 
-                                ? <MdWatchLater /> 
-                                : <MdOutlineWatchLater /> }
+                                ?  (<> <MdWatchLater /> Watched </>)   
+                                :  (<>  <MdOutlineWatchLater /> Watch </>)  }
                                  Watch Later 
                              </button>
                           </div>

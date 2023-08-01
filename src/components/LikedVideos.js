@@ -37,12 +37,12 @@ const LikedVideos = () => {
              <div className="sidebar-container" style = {{backgroundColor:'#dee2e6'}}>
                     <div className="top-categories" style = {{paddingTop:'2%',cursor:'pointer',color:'black',textAlign:'center'}}>
                         <h2>  Your Liked Videos  </h2>
-                        {userState.likedVideos.length === 0 && (
+                        {userState?.likedVideos?.length === 0 && (
                             <h4> You have no liked videos </h4>
                          )}
                     </div>
                     <div className="videos-ctn">
-                      {userState.likedVideos.map((item) => (
+                      {userState.likedVideos?.map((item) => (
                          <ProductCard  maindata = {item}  key = {item._id} />
                       ))}
                     </div>

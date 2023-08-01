@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import NavMenu from './NavMenu'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import { AiFillLike } from 'react-icons/ai';
-import { MdPlaylistAdd ,MdWatchLater } from 'react-icons/md';
+import { AiFillLike , AiOutlineLike } from 'react-icons/ai';
+import { MdPlaylistAdd , MdWatchLater , MdOutlineWatchLater } from 'react-icons/md';
 
 const SingleVideos = () => {
 
@@ -18,12 +18,10 @@ const SingleVideos = () => {
      (async () => {
       try{
         const response = await axios.get(`/api/video/${params.videoId}`);
-        // console.log('reponse in singlevideo -',response);
         setLoader(false);
         setsinglevideo(response.data.video);
       }catch(error){
          setLoader(false);
-        //  console.log('single video -',error);
       }
      })();
    },[params.videoId]);
@@ -48,9 +46,15 @@ const SingleVideos = () => {
 
                   <div className="singlevideo-details" style = {{margin:'2%'}}>
                           <div className="buttons-section" style = {{display:'grid',gridTemplateColumns:'1fr 1fr 1fr',justifyContent:'space-evenly'}}>
-                              <button style = {{padding:'2% 1%',width:'30%'}}>  <AiFillLike /> Like </button>
+                              <button style = {{padding:'2% 1%',width:'30%'}}> 
+                               <AiOutlineLike />
+                               <AiFillLike />
+                                Like </button>
                               <button style = {{padding:'1% 2%',width:'30%'}}>  <MdPlaylistAdd/> Save </button>
-                              <button style = {{padding:'1% 2%',width:'50%'}}>  <MdWatchLater /> Watch Later </button>
+                              <button style = {{padding:'1% 2%',width:'50%'}}>  
+                              <MdOutlineWatchLater />
+                              <MdWatchLater /> 
+                              Watch Later </button>
                           </div>
                           <div className="title-section">
                            <span style = {{fontSize:'24px'}}> {title} by {creator} </span>

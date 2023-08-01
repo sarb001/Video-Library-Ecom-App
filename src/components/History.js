@@ -41,7 +41,7 @@ const History = () => {
               
              <div className="sidebar-container" style = {{backgroundColor:'#dee2e6'}}>
 
-                    {   userState?.history?.length === 0 && (
+                    {userState?.history?.length === 0 && (
                         <div className="top-categories" style = {{paddingTop:'2%',cursor:'pointer',color:'black',textAlign:'center'}}>
                             <h2>  Your History </h2>
                             <h4> Your history is empty! </h4>
@@ -51,7 +51,6 @@ const History = () => {
                     {userState?.history?.map((item) => (
                           <ProductCard  maindata={item}  key = {item._id} />
                     ))}
-                    {/* <div className="videos-section"></div> */}
              </div>
         </div>
     </>

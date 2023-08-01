@@ -19,7 +19,6 @@ const History = () => {
         const response = await axios.get("/api/user/history", {
           headers: {authorization: token},
         });
-        console.log('response in histpry -',response);
         userDispatch({
           type: "HISTORY_ACTIONS",
           payload: response.data.history,
@@ -30,8 +29,6 @@ const History = () => {
     })();
    },[])
 
-   console.log('userstate in history  2 -',userState);
-
   return (
     <>
        <div className="history-container" style = {{display:'grid',gridTemplateColumns:'1fr 4fr'}}>
@@ -40,7 +37,6 @@ const History = () => {
               </div>
               
              <div className="sidebar-container" style = {{backgroundColor:'#dee2e6'}}>
-
                     {userState?.history?.length === 0 && (
                         <div className="top-categories" style = {{paddingTop:'2%',cursor:'pointer',color:'black',textAlign:'center'}}>
                             <h2>  Your History </h2>

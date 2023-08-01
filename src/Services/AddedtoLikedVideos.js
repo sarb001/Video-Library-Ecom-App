@@ -3,11 +3,6 @@ import React from 'react'
 import { toast } from 'react-toastify';
 
 const AddedtoLikedVideos = async (video,token,dispatch) => {
-
-    console.log('video  in addedto -',video);
-    console.log('video  in token -',token);
-    console.log('video  in dispatch -',dispatch);
-
    try{
     const response = await axios.post('/api/user/likes' ,
     {video},

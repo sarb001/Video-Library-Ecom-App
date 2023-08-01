@@ -8,6 +8,7 @@ import { useUserData } from '../Context/UserDataContext';
 import RemovefromLikedVideo from '../Services/RemovefromLikedVideo';
 import { LikeService } from '../Services/LikeService';
 import { useNavigate } from 'react-router-dom' ;
+import Removefromhistory from '../Services/Removefromhistory';
 
 const VideoOption = ({isOptionActive ,video}) => {
 
@@ -30,7 +31,7 @@ const VideoOption = ({isOptionActive ,video}) => {
           )
     }
      const handleRemoveVideo =  () => {
-        
+        Removefromhistory(video._id,auth.token,userDispatch)
      }
 
   return (

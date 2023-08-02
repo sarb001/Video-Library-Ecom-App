@@ -28,8 +28,10 @@ const PlayListModal = ({maindata}) => {
     const {playlistName,setplaylistName} = useState("");
 
      const handleaddnewplaylist = (e) => {
-        e.preventDefault();
-        AddNewPlaylist(userState.playlist,auth.token,userDispatch);
+        console.log('  handle add  new =');
+        setisCreateNewActive((prev) => !prev);
+        // e.preventDefault();
+        // AddNewPlaylist(userState.playlist,auth.token,userDispatch);
      };
 
   return (
@@ -41,6 +43,9 @@ const PlayListModal = ({maindata}) => {
           <ModalOverlay />
           <ModalContent>
             <ModalHeader> Save to .... </ModalHeader>
+            <button  onClick = {() => setisCreateNewActive((prev) => !prev)}> 
+                   Reset 
+          </button>
             <ModalCloseButton />
             <ModalBody>
                <div className="new-checkbox-sections">
@@ -51,22 +56,23 @@ const PlayListModal = ({maindata}) => {
 
                 {isCreateNewActive ? (
                     <>
-                        <form onSubmit={handleaddnewplaylist}>
+                        <form onSubmit = {handleaddnewplaylist}>
                             <label>
-                                Name : <input  type='text' 
+                                Name : <input  type = 'text' 
                                  placeholder = 'Enter  Playlist Name'
-                                //  onChange={() => }
+                                 value = {playlistName}
+                                 onChange={(e) => setplaylistName(e.target.value)}
                                  required 
                                  />
                             </label>
-                        </form>
                         <button> Create  </button>
+                        </form>
                      </>
                 )  : (
                     <>
-                     <Button colorScheme = 'red'>
-                         <MdPlaylistAddCircle />  Create New Playlist 
-                     </Button > 
+                    <button  
+                    onClick={() =>  setisCreateNewActive((prev) => !prev)} > 
+                    Create New Playlist  </button>
                     </>
                 )}
                 

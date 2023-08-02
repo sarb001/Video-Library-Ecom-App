@@ -1,5 +1,5 @@
 
 
-export const AddNewPlaylist = () => {
+export const AddNewPlaylist = (playlist,token,dispatch) => {
 
 }

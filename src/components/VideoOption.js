@@ -52,7 +52,9 @@ const VideoOption = ({isOptionActive ,video}) => {
              </button>
             <button onClick = {handlesaveplaylist}> 
                 <span>
-                 <PlayListModal >
+                 <PlayListModal  
+                  maindata = {video}
+                 >
                    <IoAddCircleSharp /> 
                  </PlayListModal>
                  </span>

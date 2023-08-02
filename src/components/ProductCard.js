@@ -8,9 +8,11 @@ import { addtoHistory } from '../Services/HistoryServices';
 import PlayListModal from './PlayListModal';
 
 const ProductCard = ({maindata}) => {
+
      const {thumbnail ,creator ,title , views ,profile , date  } = maindata;
      const navigate = useNavigate();
      const [isOptionActive,setisOptionActive] = useState(false);
+     const [isSavetoPlayActive,setisSavetoPlayActive] = useState(true);
      const {userState,userDispatch} = useUserData();
      const { auth } = useAuth();
 
@@ -20,7 +22,6 @@ const ProductCard = ({maindata}) => {
             }
           navigate(`/singlevideo/${maindata._id}`);
      };
-
 
   return (
     <>
@@ -48,9 +49,18 @@ const ProductCard = ({maindata}) => {
 
                             <div className = "bottom-third-section">
                                 <VideoOption 
-                                 isOptionActive= {isOptionActive}
+                                 isOptionActive = {isOptionActive}
                                  video = {maindata} />
                              </div>
+
+                            {/* <div className="bottom-fourth-section">
+                                {isSavetoPlayActive && (
+                                  <PlayListModal 
+                                   setisSavetoPlayActive = {setisSavetoPlayActive}
+                                   videoData = {maindata}
+                                  />
+                                )}
+                            </div> */}
 
                     </div>
             

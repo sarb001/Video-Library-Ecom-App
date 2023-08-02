@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Modal,
     ModalOverlay,
@@ -12,9 +12,26 @@ import {
   } from '@chakra-ui/react'
 
 import {MdPlaylistAddCircle} from 'react-icons/md';
+import { useUserData } from '../Context/UserDataContext';
+import { AddNewPlaylist } from '../utils/AddNewPlaylist';
+import { useAuth } from '../Context/authContext';
 
-const PlayListModal = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure()
+
+const PlayListModal = ({maindata}) => {
+
+    console.log('playlist Modal  1 -',maindata);
+
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const { userState , userDispatch } = useUserData();
+    const { auth } = useAuth();
+    const [isCreateNewActive,setisCreateNewActive] = useState(false);
+    const {playlistName,setplaylistName} = useState("");
+
+     const handleaddnewplaylist = (e) => {
+        e.preventDefault();
+        AddNewPlaylist(userState.playlist,auth.token,userDispatch);
+     };
+
   return (
     <>
 <>
@@ -28,11 +45,31 @@ const PlayListModal = () => {
             <ModalBody>
                <div className="new-checkbox-sections">
                 <input type = "checkbox" />
+                <label>  </label>
                </div>
                <div className="add-new-section">
-                 <Button colorScheme='red' >
-                    <MdPlaylistAddCircle />  Create New Playlist 
-                </Button > 
+
+                {isCreateNewActive ? (
+                    <>
+                        <form onSubmit={handleaddnewplaylist}>
+                            <label>
+                                Name : <input  type='text' 
+                                 placeholder = 'Enter  Playlist Name'
+                                //  onChange={() => }
+                                 required 
+                                 />
+                            </label>
+                        </form>
+                        <button> Create  </button>
+                     </>
+                )  : (
+                    <>
+                     <Button colorScheme = 'red'>
+                         <MdPlaylistAddCircle />  Create New Playlist 
+                     </Button > 
+                    </>
+                )}
+                
                </div>
             </ModalBody>
           </ModalContent>

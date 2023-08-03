@@ -30,7 +30,7 @@ export const addnewplaylistHandler = function (schema,request){
     }
 }
 
-export const removeplaylistHandler = function(request,schema){
+export const removeplaylistHandler = function(schema,request){
     try{
         const user = requiresAuth.call(this,request);
         if(user){
@@ -51,14 +51,57 @@ export const removeplaylistHandler = function(request,schema){
 
 // videos 
 
-export const getvideosfromPlaylistHandler = () => {
-
+export const getvideosfromPlaylistHandler = function(schema,request){
+    const user = requiresAuth.call(this,request);
+    try{
+         if(user){
+             const playlistId = request.params.playlistId;
+             const playlist = user.playlists.find((item) =>  item._id === playlistId);
+             return new Response(200 , {} , { playlist });
+         }
+        return new Response(404, {} , {errors : [" The Email is not Registered "]})
+    }catch(error){
+         return new Response(500, {} , {error});
+    }
 }
 
-export const addvideotoPlaylistHandler = () => {
-
+export const addvideotoPlaylistHandler = function(schema,request){
+    const user = requiresAuth.call(this,request);
+    try{
+         if(user){
+             const playlistId = request.params.playlistId;
+             const { video } = JSON.parse(request.requestBody);
+             const playlist = user.playlists.find((item) =>  item._id === playlistId);
+              if(playlist.videos.some((item) => item.id === video.id)){
+                    return new Response(409, {} , 
+                        {
+                            errors :[" Video already  in  Playlist "],
+                        })
+              }
+              playlist.videos.push(video);
+              return new Response(201, {} , {playlist});
+         }
+        return new Response(404, {} , {errors : [" The Email is not Registered "]})
+    }catch(error){
+         return new Response(500, {} , {error});
+    }
 }
 
-export const deletevideosfromPlaylistHandler = () => {
-
+export const deletevideosfromPlaylistHandler = function (schema,request){
+    const user = requiresAuth.call(this,request);
+    try{
+         if(user){
+             const playlistId = request.params.playlistId;
+             const videoId = request.params.videoId;
+             const playlist = user.playlists.find((item) =>  item._id === playlistId); // playlist  founded 
+             const filteredVideos  =   playlist.videos.filter(
+                (item) => item.id !== videoId);
+                   
+              playlist.videos = filteredVideos;
+              return new Response(200, {} , {playlist});
+         }
+        return new Response(404, {} , {errors : [" The Email is not Registered "]})
+    }catch(error){
+         return new Response(500, {} , {error});
+    }
 }

@@ -33,18 +33,27 @@ const PlayListModal = ({maindata}) => {
      const handleaddnewplaylist = (e) => {
         console.log('  handle add  new =');
         setisCreateNewActive((prev) => !prev);
-        // e.preventDefault();
-        // AddNewPlaylist(userState.playlist,auth.token,userDispatch);
+        e.preventDefault();
+        AddNewPlaylist(userState.playlist,auth.token,userDispatch);
      };
 
      const handleplaylistvideo = (playlistId,title,videoId) => {
         const isChecked = IsVideoinPlayList(userState.playlist,videoId,playlistId);
-        //  if(checked)  remove from  playlist
-        //  if not checked add it to playlist
         if(isChecked){
-            Removevideofromplaylist()
+            Removevideofromplaylist(
+                playlistId,
+                videoId,
+                auth.token,
+                userDispatch
+            )
         }else{
-            AddVideotoplaylist()
+            AddVideotoplaylist(
+                playlistId,
+                title,
+                maindata,
+                auth.token,
+                userDispatch
+            )
         }
      }
 
@@ -68,18 +77,19 @@ const PlayListModal = ({maindata}) => {
 
                 {userState.playlist.length > 0 && 
                     userState.playlist.map((item) => (
-                        <input type = "checkbox"  
-                         name = {item.title}
-                         id   = {item._id}
-                         checked = {IsVideoinPlayList(playlist,maindata._id,item._id)}
-                         onChange={() => handleplaylistvideo(
-                                item._id,
-                                item.title,
-                                maindata._id
-                         )}
-                        />
+                         <div className="input-section" key = {item._id}>
+                                <input type = "checkbox"  
+                                name = {item.title}
+                                id   = {item._id}
+                                checked = {IsVideoinPlayList(userState.playlist,maindata._id,item._id)}
+                                onChange={() => handleplaylistvideo(
+                                        item._id,
+                                        item.title,
+                                        maindata._id
+                                )} />
+                           </div>
                         ))}
-                <label>  </label>
+                <label  htmlFor = {item._id}> {item.title} </label>
                </div>
                <div className="add-new-section">
 

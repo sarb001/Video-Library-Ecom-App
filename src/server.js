@@ -6,7 +6,7 @@ import { getSingleVideoHandler, getallvideoshandler } from './backend/controller
 import { getSinglecategoryhandler, getallcategorieshandler } from './backend/controllers/CategoryController';
 import { addtoLikesHandler, getallLikesHandler, removefromLikesHandler } from './backend/controllers/LikeController';
 import { addtohistoryHandler, clearhistoryHandler, getallhistoryHandler, removevideofromhistoryHandler } from './backend/controllers/HistoryController';
-import { getallplaylistHandler } from './backend/controllers/PlayListController';
+import { addvideotoPlaylistHandler, deletevideosfromPlaylistHandler, getallplaylistHandler, getvideosfromPlaylistHandler, removeplaylistHandler } from './backend/controllers/PlayListController';
 import { addtowatchlaterHandler, getallwatchlaterHandler, removefromwatchlaterHandler } from './backend/controllers/WatchLaterController';
 import { loginHandler, signupHandler } from './backend/controllers/AuthController';
 
@@ -75,7 +75,15 @@ export function makeServer({ environment = "development" } = {}){
              this.delete('/user/history/all',  clearhistoryHandler.bind(this));
              
              // playlist 
-             this.get('/user/playlist' ,   getallplaylistHandler.bind(this));
+             this.get('/user/playlists' ,   getallplaylistHandler.bind(this));
+             this.post('/user/playlists' , addnewplaylistHandler.bind(this));
+
+             this.delete('/user/playlists/:playlistId' , removeplaylistHandler.bind(this));
+
+             // video in playlist 
+             this.get('/user/playlists/:playlistId' ,  getvideosfromPlaylistHandler.bind(this));
+             this.post('/user/playlists/:playlistId' ,  addvideotoPlaylistHandler.bind(this));
+             this.delete('/user/playlists/:playlistId' ,  deletevideosfromPlaylistHandler.bind(this));
         }
     })
 }

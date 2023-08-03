@@ -53,14 +53,6 @@ const ProductCard = ({maindata}) => {
                                  video = {maindata} />
                              </div>
 
-                            {/* <div className="bottom-fourth-section">
-                                {isSavetoPlayActive && (
-                                  <PlayListModal 
-                                   setisSavetoPlayActive = {setisSavetoPlayActive}
-                                   videoData = {maindata}
-                                  />
-                                )}
-                            </div> */}
 
                     </div>
             

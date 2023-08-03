@@ -15,6 +15,9 @@ import {MdPlaylistAddCircle} from 'react-icons/md';
 import { useUserData } from '../Context/UserDataContext';
 import { AddNewPlaylist } from '../utils/AddNewPlaylist';
 import { useAuth } from '../Context/authContext';
+import IsVideoinPlayList from '../utils/IsVideoinPlayList';
+import Removevideofromplaylist from '../utils/Removevideofromplaylist';
+import AddVideotoplaylist from '../utils/AddVideotoplaylist';
 
 
 const PlayListModal = ({maindata}) => {
@@ -34,6 +37,19 @@ const PlayListModal = ({maindata}) => {
         // AddNewPlaylist(userState.playlist,auth.token,userDispatch);
      };
 
+     const handleplaylistvideo = (playlistId,title,videoId) => {
+        const isChecked = IsVideoinPlayList(userState.playlist,videoId,playlistId);
+        //  if(checked)  remove from  playlist
+        //  if not checked add it to playlist
+        if(isChecked){
+            Removevideofromplaylist()
+        }else{
+            AddVideotoplaylist()
+        }
+     }
+
+
+
   return (
     <>
 <>
@@ -49,7 +65,20 @@ const PlayListModal = ({maindata}) => {
             <ModalCloseButton />
             <ModalBody>
                <div className="new-checkbox-sections">
-                <input type = "checkbox" />
+
+                {userState.playlist.length > 0 && 
+                    userState.playlist.map((item) => (
+                        <input type = "checkbox"  
+                         name = {item.title}
+                         id   = {item._id}
+                         checked = {IsVideoinPlayList(playlist,maindata._id,item._id)}
+                         onChange={() => handleplaylistvideo(
+                                item._id,
+                                item.title,
+                                maindata._id
+                         )}
+                        />
+                        ))}
                 <label>  </label>
                </div>
                <div className="add-new-section">

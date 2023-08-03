@@ -1,5 +1,9 @@
 
 
-export const AddNewPlaylist = (playlist,token,dispatch) => {
-    return 
+export const AddNewPlaylist =  async (playlist,token,dispatch) => {
+    try{
+
+    }catch(err){
+        
+    }
 }

@@ -87,9 +87,9 @@ const PlayListModal = ({maindata}) => {
                                         item.title,
                                         maindata._id
                                 )} />
+                            <label  htmlFor = {item._id}> {item.title} </label>
                            </div>
                         ))}
-                <label  htmlFor = {item._id}> {item.title} </label>
                </div>
                <div className="add-new-section">
 

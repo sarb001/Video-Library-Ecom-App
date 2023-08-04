@@ -18,9 +18,6 @@ const NavMenu = () => {
                      <Link to = "/" className='menu-link' > Home </Link>
                 </span>
                 <span className = 'menu-tab'>
-                     <Link to = "/search" className='menu-link' > Search </Link>
-                </span>
-                <span className = 'menu-tab'>
                      <Link to = "/playlist" className='menu-link' > Playlist </Link>
                 </span>
                 <span className = 'menu-tab'>
@@ -32,9 +29,7 @@ const NavMenu = () => {
                 <span className = 'menu-tab'>
                      <Link to = "/watchlater" className='menu-link' > Watch Later </Link>
                 </span>
-                <span className = 'menu-tab'>
-                     <Link to = "/lightmode" className='menu-link' > Light Mode </Link>
-                </span>
+
                 <span className = 'menu-tab'>
                      <Link to = "/profile"  className='menu-link' > Profile </Link>
                 </span>
@@ -42,7 +37,7 @@ const NavMenu = () => {
 
                     <section className='menu-footer' style = {{textAlign:'center'}}>
                             <div className="made-by">
-                                <span> Made by Arsh  </span>
+                                <span> Made by Sarb  </span>
                             </div>
                             <div className="main-logos">
                                 <span> T </span>

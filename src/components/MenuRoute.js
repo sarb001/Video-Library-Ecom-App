@@ -24,7 +24,6 @@ const MenuRoute = () => {
               <Route path = "/singlevideo/:videoId"    element = {<SingleVideos  />}>  </Route>
               <Route path = "/login"    element = {<Login />}>  </Route>
               <Route path = "/signup"   element = {<Signup />}>  </Route>
-              <Route path = "/lightmode"  element = {<LightMode />}>  </Route>
               <Route path = "/search"  element = {<Search  />}>  </Route>
               
               <Route path = "/profile"  element = {

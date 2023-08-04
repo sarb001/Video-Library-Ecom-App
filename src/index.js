@@ -5,7 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { makeServer } from './server';
 import { AuthProvider } from './Context/authContext';
 import { UserDataProvider } from './Context/UserDataContext';
-
+import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -18,7 +18,9 @@ root.render(
         <AuthProvider>     
             {/* For Using Likes,playlists and all  */}
           <UserDataProvider>
-              <App />
+
+                <App />
+
           </UserDataProvider>
         </AuthProvider>
       </Router>

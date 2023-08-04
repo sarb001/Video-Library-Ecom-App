@@ -22,8 +22,6 @@ import AddVideotoplaylist from '../utils/AddVideotoplaylist';
 
 const PlayListModal = ({maindata}) => {
 
-    // console.log('playlist Modal  1 -',maindata);
-
     const [playlistName,setplaylistName] = useState("");
     const { isOpen, onOpen, onClose } = useDisclosure();
     const { userState , userDispatch } = useUserData();

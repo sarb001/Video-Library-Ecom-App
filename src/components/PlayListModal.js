@@ -22,19 +22,19 @@ import AddVideotoplaylist from '../utils/AddVideotoplaylist';
 
 const PlayListModal = ({maindata}) => {
 
-    console.log('playlist Modal  1 -',maindata);
+    // console.log('playlist Modal  1 -',maindata);
 
+    const [playlistName,setplaylistName] = useState("");
     const { isOpen, onOpen, onClose } = useDisclosure();
     const { userState , userDispatch } = useUserData();
     const { auth } = useAuth();
     const [isCreateNewActive,setisCreateNewActive] = useState(false);
-    const {playlistName,setplaylistName} = useState("");
 
      const handleaddnewplaylist = (e) => {
         console.log('  handle add  new =');
-        setisCreateNewActive((prev) => !prev);
         e.preventDefault();
-        AddNewPlaylist(userState.playlist,auth.token,userDispatch);
+        AddNewPlaylist(playlistName,auth.token,userDispatch);
+        setisCreateNewActive((prev) => !prev);
      };
 
      const handleplaylistvideo = (playlistId,title,videoId) => {
@@ -58,24 +58,25 @@ const PlayListModal = ({maindata}) => {
      }
 
 
-
   return (
     <>
-<>
+
         <Button onClick={onOpen}> Save to Playlist  </Button>
   
         <Modal isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
           <ModalContent>
             <ModalHeader> Save to .... </ModalHeader>
-            <button  onClick = {() => setisCreateNewActive((prev) => !prev)}> 
+            <button 
+            style = {{padding:'3%',backgroundColor:'blue'}}
+            onClick = {() => setisCreateNewActive((prev) => !prev)}> 
                    Reset 
           </button>
             <ModalCloseButton />
             <ModalBody>
                <div className="new-checkbox-sections">
 
-                {userState.playlist.length > 0 && 
+                {userState?.playlist?.length > 0 && 
                     userState.playlist.map((item) => (
                          <div className="input-section" key = {item._id}>
                                 <input type = "checkbox"  
@@ -104,12 +105,14 @@ const PlayListModal = ({maindata}) => {
                                  required 
                                  />
                             </label>
-                        <button> Create  </button>
+                        <button 
+                       style = {{padding:'3%',backgroundColor:'greenyellow'}}> Create  </button>
                         </form>
                      </>
                 )  : (
                     <>
                     <button  
+                     style = {{padding:'3%',backgroundColor:'red'}}
                     onClick={() =>  setisCreateNewActive((prev) => !prev)} > 
                     Create New Playlist  </button>
                     </>
@@ -120,7 +123,6 @@ const PlayListModal = ({maindata}) => {
           </ModalContent>
         </Modal>
       </>
-    </>
   )
 }
 

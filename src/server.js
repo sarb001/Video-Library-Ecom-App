@@ -82,7 +82,7 @@ export function makeServer({ environment = "development" } = {}){
              // video in playlist 
              this.get('/user/playlists/:playlistId' ,  getvideosfromPlaylistHandler.bind(this));
              this.post('/user/playlists/:playlistId' ,  addvideotoPlaylistHandler.bind(this));
-             this.delete('/user/playlists/:playlistId' ,  deletevideosfromPlaylistHandler.bind(this));
+             this.delete('/user/playlists/:playlistId/:videoId' ,  deletevideosfromPlaylistHandler.bind(this));
         }
     })
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {IoAddCircleSharp} from 'react-icons/io5';
 import IsVideoPresent from '../utils/IsVideoPresent';
 import { useLocation } from 'react-router-dom';
@@ -13,6 +13,7 @@ import PlayListModal from './PlayListModal';
 const VideoOption = ({isOptionActive ,video}) => {
 
      const { userState,userDispatch } = useUserData();
+     const [isSavetoPlaylistActive,setisSavetoPlaylistActive] = useState(true);
      const navigate  = useNavigate();
      const location = useLocation();
      const { auth } = useAuth();
@@ -52,11 +53,13 @@ const VideoOption = ({isOptionActive ,video}) => {
              </button>
             <button onClick = {handlesaveplaylist}> 
                 <span>
-                 <PlayListModal  
-                  maindata = {video}
-                 >
-                   <IoAddCircleSharp /> 
-                 </PlayListModal>
+                  {isSavetoPlaylistActive && (
+                    <PlayListModal  
+                     setisSavetoPlaylistActive = {setisSavetoPlaylistActive}
+                     maindata = {video}>
+                         <IoAddCircleSharp /> 
+                    </PlayListModal>
+                    )}
                  </span>
              </button>
             <button onClick = {handlelikevideo}> 

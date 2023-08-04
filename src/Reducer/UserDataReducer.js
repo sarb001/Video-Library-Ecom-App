@@ -9,11 +9,12 @@ export const userDataReducer = (state,action) => {
          return { ...state , playlist : [...action.payload]}
 
         case "REMOVE_VIDEO_FROM_PLAYLIST" : 
+        const updatePlaylist = state.playlist.filter(
+            (video) => video.id !== action.payload);
+
         return {
             ...state,
-            playlist : state.playlist.map((item) => 
-                item._id === action.payload._id ? action.payload : item
-            ),   
+            playlist : updatePlaylist, 
         }
 
         case  "LIKED_VIDEOS"  :

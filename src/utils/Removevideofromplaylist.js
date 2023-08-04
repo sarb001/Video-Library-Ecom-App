@@ -1,5 +1,4 @@
 import axios from 'axios';
-import React from 'react'
 import { toast } from 'react-toastify';
 
 const Removevideofromplaylist = async(playlistId,videoId,token,dispatch) => {
@@ -10,7 +9,7 @@ const Removevideofromplaylist = async(playlistId,videoId,token,dispatch) => {
         });
         dispatch({
           type : "REMOVE_VIDEO_FROM_PLAYLIST",
-          payload: response.data.playlist,
+          payload: videoId,
         });
         console.log('response from removing - ',response);
         toast.success(` Video Removed from  Playlist `);

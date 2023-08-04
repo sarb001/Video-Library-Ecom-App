@@ -8,8 +8,10 @@ const DeletePlaylist = async(playlistId,dispatch,token) => {
         const response = await axios.delete(`/api/user/playlists/${playlistId}`, {
           headers: {authorization: token},
         });
-        dispatch({type: "DELETE_PLAYLIST", 
-        payload: response.data.playlists});
+        dispatch({
+        type: "DELETE_PLAYLIST", 
+        payload: response.data.playlists
+      });
         toast.success("Playlist deleted");
       } catch (err) {
         toast.error("Error in deleting playlist");

@@ -52,8 +52,6 @@ const ProductCard = ({maindata}) => {
                                  isOptionActive = {isOptionActive}
                                  video = {maindata} />
                              </div>
-
-
                     </div>
             
         </div>

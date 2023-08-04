@@ -20,7 +20,7 @@ import Removevideofromplaylist from '../utils/Removevideofromplaylist';
 import AddVideotoplaylist from '../utils/AddVideotoplaylist';
 
 
-const PlayListModal = ({maindata}) => {
+const PlayListModal = ({ setisSavetoPlaylistActive ,maindata}) => {
 
     const [playlistName,setplaylistName] = useState("");
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -70,7 +70,7 @@ const PlayListModal = ({maindata}) => {
             onClick = {() => setisCreateNewActive((prev) => !prev)}> 
                    Reset 
           </button>
-            <ModalCloseButton />
+            <ModalCloseButton  onClick={(() =>  setisSavetoPlaylistActive((prev) => !prev))} />
             <ModalBody>
                <div className="new-checkbox-sections">
 

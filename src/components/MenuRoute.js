@@ -13,7 +13,8 @@ import WatchLater from './WatchLater';
 import Playlist from './Playlist';
 import SingleVideos from './SingleVideos';
 import  RequireAuth  from './RequireAuth';
-import LightMode from './LightMode';
+
+
 
 const MenuRoute = () => {
   return (

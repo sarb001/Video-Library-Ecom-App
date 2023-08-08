@@ -22,13 +22,11 @@ const VideoListing = () => {
           (async () => {
             try{
               const response = await axios.get('/api/videos');
-              // console.log('Fetching Videos -',response.data.videos);
               setloader(false);
               setvideos(response.data.videos);
               setcategoryvideos(response.data.videos);
             }catch(err){  
               setloader(false);
-              //  console.log(' Video Listing Error ',err);
             } 
             })();
     },[])  
@@ -43,6 +41,11 @@ const VideoListing = () => {
         return currentcategory.toLowerCase() === item.toLowerCase() ? 'chip-active' : null;
      }
 
+     const handleAllCategory = () => {
+         setcurrentcategory("All");
+         setcategoryvideos(videos);
+     }
+
   return (
     <>
         <div className="video-container" style = {{display:'grid',gridTemplateColumns:'1fr 4fr'}}>
@@ -55,6 +58,7 @@ const VideoListing = () => {
 
                     <div className="top-categories" style = {{paddingTop:'2%',cursor:'pointer',paddingBottom:'2%'}}>
                       <span
+                       onClick={handleAllCategory}
                        className={`chip ${isChipActive("All")}`}>
                         All 
                       </span>

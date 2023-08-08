@@ -40,9 +40,9 @@ const NavMenu = () => {
                                 <span> Made by Sarb  </span>
                             </div>
                             <div className="main-logos">
-                                <span> T </span>
-                                <span> L </span>
-                                <span> G </span>
+                                <span> Twitter </span>
+                                <span> Linkedin </span>
+                                <span> Github </span>
                             </div>
                     </section>
 

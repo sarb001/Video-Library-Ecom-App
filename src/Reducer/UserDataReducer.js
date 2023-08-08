@@ -5,13 +5,14 @@ export const userDataReducer = (state,action) => {
         case "INITIAL_PLAYLIST"  :
          return { ...state,  playlist : [...action.payload]}
         
-         case "DELETE_PLAYLIST" : 
+         case "DELETE_PLAYLIST"  : 
          return { ...state , playlist : [...action.payload]}
 
         case "REMOVE_VIDEO_FROM_PLAYLIST" : 
         const updatePlaylist = state.playlist.filter(
-            (video) => video.id !== action.payload);
+            (video) => video.id === action.payload);
 
+        console.log('update PlayList here  -',updatePlaylist);   
         return {
             ...state,
             playlist : updatePlaylist, 

@@ -10,6 +10,7 @@ const initialState = {
     watchlater : [],
     history : [],
 }
+
 const token  = localStorage.getItem('token');
 
 const UserDataProvider = ({ children }) => {

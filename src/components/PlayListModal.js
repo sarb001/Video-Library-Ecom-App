@@ -23,8 +23,8 @@ import AddVideotoplaylist from '../utils/AddVideotoplaylist';
 const PlayListModal = ({ setisSavetoPlaylistActive ,maindata}) => {
 
     const [playlistName,setplaylistName] = useState("");
-    const { isOpen, onOpen, onClose } = useDisclosure();
-    const { userState , userDispatch } = useUserData();
+    const { isOpen, onOpen, onClose }    = useDisclosure();
+    const { userState , userDispatch }   = useUserData();
     const { auth } = useAuth();
     const [isCreateNewActive,setisCreateNewActive] = useState(false);
 
@@ -78,10 +78,10 @@ const PlayListModal = ({ setisSavetoPlaylistActive ,maindata}) => {
                     userState.playlist.map((item) => (
                          <div className="input-section" key = {item._id}>
                                 <input type = "checkbox"  
-                                name = {item.title}
-                                id   = {item._id}
-                                checked = {IsVideoinPlayList(userState.playlist,maindata._id,item._id)}
-                                onChange={() => handleplaylistvideo(
+                                    name = {item.title}
+                                    id   = {item._id}
+                                    checked = {IsVideoinPlayList(userState.playlist,maindata._id,item._id)}
+                                    onChange={() => handleplaylistvideo(
                                         item._id,
                                         item.title,
                                         maindata._id

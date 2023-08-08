@@ -98,8 +98,9 @@ export const deletevideosfromPlaylistHandler = function (schema,request){
                 (item) => item._id !== videoId);
                    
               console.log('backend - filtered videos -',filteredVideos);  
-              this.db.users.update({ playlist : filteredVideos });
-              return new Response(200, {} , {playlist : filteredVideos });
+              //   this.db.users.update({ playlist : filteredVideos });
+              playlist.videos = filteredVideos;
+              return new Response(200, {} , {playlist});
          }
         return new Response(404, {} , {errors : [" The Email is not Registered "]})
     }catch(error){

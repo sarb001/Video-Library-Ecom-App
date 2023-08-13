@@ -4,3 +4,10 @@
  <h3>  Frontend Used -- Reactjs (  UI  Library ) </h3> 
  <h3>  Backend Used  -- Miragejs for Fake Backend  </h3> 
 
+ # Tech Used -
+ ~ Reactjs 
+ ~ React-Router
+ ~ Miragejs 
+ ~ Chakra UI 
+ 
+

@@ -1,8 +1,8 @@
 # Video Library WebApp ⏯
  Video Library App is the used to perform Mutiple  operations on all videos  
 
- <h2>  Frontend Used --  <h4>  Reactjs  </h2>  (  UI  Library ) </h4>  
- <h2>  Backend Used  --   <h4> Miragejs for Fake Backend </h2> </h4>    
+ <h2>  Frontend  -  <h4>  Reactjs  </h2>  (  UI  Library ) </h4>  
+ <h2>  Backend  -   <h4> Miragejs for Fake Backend </h2> </h4>    
 
  # Tech-Stack  Used 🎞 -
  <h4> ~ Reactjs  </h4>

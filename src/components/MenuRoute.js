@@ -14,8 +14,6 @@ import Playlist from './Playlist';
 import SingleVideos from './SingleVideos';
 import  RequireAuth  from './RequireAuth';
 
-
-
 const MenuRoute = () => {
   return (
     <>

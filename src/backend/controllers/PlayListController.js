@@ -98,7 +98,6 @@ export const deletevideosfromPlaylistHandler = function (schema,request){
                 (item) => item._id !== videoId);
                    
               console.log('backend - filtered videos -',filteredVideos);  
-              //   this.db.users.update({ playlist : filteredVideos });
               playlist.videos = filteredVideos;
               return new Response(200, {} , {playlist});
          }

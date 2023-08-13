@@ -11,3 +11,19 @@
 .menu-tab:hover{
     background-color: rgb(19, 18, 18);
 }
+.navmenu-container{
+    margin:1% 1% 5% 8%;
+    cursor: pointer;
+}
+.main-logo{
+ margin: 4%;
+}
+.main-logo{
+    font-size: 40px;
+    padding: 9% 9%;
+}
+.all-tabs{
+    display:grid;
+    grid-template-rows:repeat(auto-fill,(8,1fr));
+    row-gap: 1px;
+}

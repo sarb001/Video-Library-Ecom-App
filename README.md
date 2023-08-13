@@ -4,7 +4,7 @@
  <h2>  Frontend Used -- Reactjs (  UI  Library ) </h2> 
  <h2>  Backend Used  -- Miragejs for Fake Backend </h2> 
 
- # Tech Used -
+ # Tech-Stack  Used in Web-App -
  <h3> ~ Reactjs  </h3>
  <h3> ~ React-Router </h3>
  <h3> ~ Miragejs  </h3>

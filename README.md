@@ -5,7 +5,7 @@
  <h2>  Backend Used  -- Miragejs for Fake Backend </h2> 
 
  # Tech-Stack  Used 🎞 -
- <h3> ~ Reactjs  </h3>
+ <h5> ~ Reactjs  </h5>
  <h3> ~ React-Router </h3>
  <h3> ~ Miragejs  </h3>
  <h3> ~ Chakra UI  </h3>

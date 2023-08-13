@@ -11,3 +11,5 @@
  <h4> ~ Chakra UI  </h4>
  
 ## Want to Contribute 👀 ??   Follow these Steps 👉👉
+1) Fork This Repo
+2) git clone 👉 https://github.com/sarb001/Video-Library-Ecom-App.git

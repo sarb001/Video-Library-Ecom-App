@@ -39,9 +39,9 @@ const NavMenu = () => {
                                 <span> Made by Sarb  </span>
                             </div>
                             <div className="main-logos">
-                                <span> Twitter </span>
-                                <span> Linkedin </span>
-                                <span> Github </span>
+                                <span>  <a href = "https://twitter.com/iamsarb_001">  Twitter  </a>  </span>
+                                <span>  <a href = "https://www.linkedin.com/in/sarbkalyan-singh-399158159/"> Linkedin  </a>  </span>
+                                <span>  <a href = "https://github.com/sarb001"> Github </a>   </span>
                             </div>
                     </section>
 

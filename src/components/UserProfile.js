@@ -24,12 +24,12 @@ const UserProfile = () => {
 
   return (
   <>
-      <div className="userprofile-container" style = {{display:'grid',gridTemplateColumns:'1fr 4fr'}}>
-      <div className="navbar-container" style = {{backgroundColor:'black',color:'white'}}>
+      <div className="userprofile-container" style = {{display:'grid',width:'100%'}}>
+      <div className="navbar-container" style = {{backgroundColor:'black',color:'white',width:'20%'}}>
         <NavMenu />
       </div>
       
-        <div className="section-ctn">
+        <div className="section-ctn" style = {{width:'80%'}}>
            <h2 className='text-center'> Profile </h2>
            <div className='profile-ctn br-sm pd-lg'>
            <div className="profile-img br-full">

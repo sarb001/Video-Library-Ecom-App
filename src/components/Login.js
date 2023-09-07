@@ -49,10 +49,12 @@ const Login = () => {
 
   return (
     <section className="app-ctn" style = {{display:'grid',gridTemplateColumns:'1fr 4fr'}}> 
+     
       <div className="first-section">
         <NavMenu />
       </div>
-        <div>
+
+      <div>
           <form
             className="br-md auth-form"
             onSubmit={(e) => handleLogin(e, loginData.email, loginData.password)}
@@ -126,7 +128,8 @@ const Login = () => {
               </Link>
             </div>
           </form>
-        </div>  
+      </div>  
+      
     </section>
   );
 };

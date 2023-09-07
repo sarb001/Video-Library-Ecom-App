@@ -48,15 +48,15 @@ const VideoListing = () => {
 
   return (
     <>
-        <div className="video-container" style = {{display:'grid',gridTemplateColumns:'1fr 4fr'}}>
+        <div className="video-container" >
             
-              <div className="navbar-container" style = {{backgroundColor:'black',color:'white'}}>
+              <div className="navbar-container" >
                 <NavMenu />
               </div>
               
-             <div className="sidebar-container" style = {{backgroundColor:'#dee2e6'}}>
+             <div className="sidebar-container" >
 
-                    <div className="top-categories" style = {{paddingTop:'2%',cursor:'pointer',paddingBottom:'2%'}}>
+                    <div className="top-categories" >
                       <span
                        onClick={handleAllCategory}
                        className={`chip ${isChipActive("All")}`}>

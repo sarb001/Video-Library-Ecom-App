@@ -8,3 +8,34 @@
     color: white;
     border-radius: 50px;
 }
+.video-container{
+    display: flex;
+    width: 100%;
+}
+/* first side  */
+.navbar-container{
+    background-color: black;
+    color: white;
+    flex: 0 0 300px;
+    float: left;
+    width: 20%;
+    position: fixed;
+    height: 100%;
+}
+
+/* second side  */
+.sidebar-container{
+    flex: 1 1;
+    overflow: auto;
+    background-color: #dee2e6;
+    float: right;
+    width: 80%;
+    margin: 0px;
+    position: absolute;
+    right: 0px;
+}
+.top-categories{
+    padding-top: 2%;
+    cursor: pointer;
+    padding-bottom: 2%;
+}

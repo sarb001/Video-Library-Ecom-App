@@ -78,6 +78,10 @@ form.auth-form {
   .error-msg {
     color: red;
   }
+  .first-section{
+    background-color: black;
+    height: 100%;
+  }
   
   @media screen and (max-width: 800px) {
     form.auth-form {
